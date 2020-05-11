@@ -1,8 +1,8 @@
-                                                             **Romance****Dawn**
-Problem:
+                                                           # _Romance Dawn_
+## Problem:
 Whoops. It seems Luffy played with my picture and I'm not able to open it anymore. Please help me.
 
-Solution:
+## Solution:
 We are given a png file but that file conatins some errors. We run a test on the file using pngcheck 
 
 root@kali:~/CTF/Sharky CTF# pngcheck -v 7uffy.png 
@@ -25,4 +25,4 @@ After some google search we find that their can be multipe chunks of IDAT presen
 we find some more chunks of ESAY no we replace them all with the IDAT chunk using ghex editor.
 hurray we found the flag.
 
-Flag: shkCTF{7uffy_1s_pr0ud_0f_y0u_0a2a9795f0bdf8d17e4}
+### Flag: shkCTF{7uffy_1s_pr0ud_0f_y0u_0a2a9795f0bdf8d17e4}
