@@ -1,0 +1,27 @@
+Problem:
+Whoops. It seems Luffy played with my picture and I'm not able to open it anymore. Please help me.
+
+Solution:
+We are given a png file but that file conatins some errors. We run a test on the file using pngcheck 
+
+root@kali:~/CTF/Sharky CTF# pngcheck -v 7uffy.png 
+File: 7uffy.png (27352 bytes)
+  chunk IHDR at offset 0x0000c, length 13
+    1113 x 885 image, 32-bit RGB+alpha, non-interlaced
+  chunk bKGD at offset 0x00025, length 6
+    red = 0x0000, green = 0x0000, blue = 0x0000
+  chunk pHYs at offset 0x00037, length 9: 2835x2835 pixels/meter (72 dpi)
+  chunk tIME at offset 0x0004c, length 7: 26 Mar 2020 00:45:09 UTC
+  chunk iTXt at offset 0x0005f, length 29, keyword: Comment
+    uncompressed, no language tag
+    no translated keyword, 18 bytes of UTF-8 text
+  chunk EASY at offset 0x00088, length 8192:  illegal (unless recently approved) unknown, public chunk
+ERRORS DETECTED in 7uffy.png
+
+We find that their are some illegal chunks "EASY" in the file and "IDAT" chunck is missing. by looking at other png files we find the value
+of IDAT chunck. So we change the values of the chunk but we still get no result.
+After some google search we find that their can be multipe chunks of IDAT present in the file so we look for more chunks of EASY and hurray 
+we find some more chunks of ESAY no we replace them all with the IDAT chunk using ghex editor.
+hurray we found the flag.
+
+Flag: shkCTF{7uffy_1s_pr0ud_0f_y0u_0a2a9795f0bdf8d17e4}
